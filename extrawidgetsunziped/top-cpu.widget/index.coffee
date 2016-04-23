@@ -2,20 +2,35 @@ command: "ps axro \"%cpu,ucomm,pid\" | awk 'FNR>1' | tail +1 | head -n 3 | sed -
 
 refreshFrequency: 2000
 
+top: "50px"
+left: "2.5%"
+botton: "auto"
+right: "auto"
+font: "'Helvetica Neue', sans-serif"
+# IF YOU HAVE APPLE DEV ACCOUNT AND DOWNLOADED SAN FRANSICO FONT (SanFran is default system font but only those with dev account can use it for other things):
+# font: "SF UI Text"
+font_color: "#FFF"
+max_width:"370px"
+z_index: 35
+
 style: """
-  top: 50px
-  left: 2.5%
-  color: #fff
-  font-family: Helvetica Neue
-  max-width:370px
-  z-index: 25
+	top: #{@style.position.top}
+	bottom: #{@style.position.bottom}
+	right: #{@style.position.right}
+	left: #{@style.position.left}
+	max-width: #{@style.max_width}
+	font-family: #{@style.font}
+	color: #{@style.font_color}
+	font-size: #{@style.font_size}
+	font-smoothing: antialiased
+	z-index: #{@style.z_index}
 
   .master
     position: relative
     animation-iteration-count: infinite
     animation-timing-function: ease
     animation-direction: alternate
-    animation-name: floatCPU
+    animation-name: floatTOPCPU
     animation-duration: 2s
 
   table
@@ -74,7 +89,7 @@ style: """
 
 render: -> """
   <style>
-    @-webkit-keyframes [floatCPU]{
+    @-webkit-keyframes [floatTOPCPU]{
        from{top: 0px}
        to{top: 5px}
     }
