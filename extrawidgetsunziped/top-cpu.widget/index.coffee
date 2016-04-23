@@ -9,7 +9,7 @@ position:
   right: "auto"
 font: "'Helvetica Neue', sans-serif"
 # IF YOU HAVE APPLE DEV ACCOUNT AND DOWNLOADED SAN FRANSICO FONT (SanFran is default system font but only those with dev account can use it for other things):
-# font: "SF UI Text"
+# font: "'SF UI Text', sans-serif"
 font_color: "#FFF"
 max_width:"370px"
 z_index: 35
