@@ -2,14 +2,28 @@ apiKey: 'b9da17ac380819a4fbca4ce5b26adab4' # put your forcast.io api key inside 
 
 refreshFrequency: 60000
 
+position: "absolute"
+top: "50%"
+left: "50%"
+right: "auto"
+bottom: "auto"
+z_index: 12
+# IF YOU DO NOT HAVE SAN FRANSICO FONT OR APPLE DEVELOPER ACCOUNT
+font: "'Helvetica Neue', sans-serif"
+# IF YOU HAVE APPLE DEV ACCOUNT AND DOWNLOADED SAN FRANSICO FONT (SanFran is default system font but only those with dev account can use it for other things):
+# font: "'SF UI Text', sans-serif"
+font_color: "rgba(255,255,255, 1)"
+
 style: """
-  position: absolute
-  top: 50%
-  left: 50%
+	top: #{@style.position.top}
+	bottom: #{@style.position.bottom}
+	right: #{@style.position.right}
+	left: #{@style.position.left}
+	font-family: #{@style.font}
+	color: #{@style.font_color}
+	z-index: #{@style.z_index}
+
   transform: translate(-50%, -50%);
-  font-family: Helvetica Neue
-  color: rgba(255,255,255, 1)
-  z-index: 12
 
   .master
     position: relative
