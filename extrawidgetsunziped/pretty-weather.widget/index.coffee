@@ -1,12 +1,12 @@
 apiKey: 'b9da17ac380819a4fbca4ce5b26adab4' # put your forcast.io api key inside the quotes here
 
-refreshFrequency: 60000
-
-position: "absolute"
-top: "50%"
-left: "50%"
-right: "auto"
-bottom: "auto"
+refreshFrequency: 60000 # Defaults to one minute
+position:
+  position: "absolute"
+  top: "50%"
+  left: "50%"
+  right: "auto"
+  bottom: "auto"
 z_index: 12
 # IF YOU DO NOT HAVE SAN FRANSICO FONT OR APPLE DEVELOPER ACCOUNT
 font: "'Helvetica Neue', sans-serif"
@@ -15,6 +15,7 @@ font: "'Helvetica Neue', sans-serif"
 font_color: "rgba(255,255,255, 1)"
 
 style: """
+  position: #{@style.position.position}
 	top: #{@style.position.top}
 	bottom: #{@style.position.bottom}
 	right: #{@style.position.right}

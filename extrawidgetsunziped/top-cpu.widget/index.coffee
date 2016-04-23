@@ -2,10 +2,11 @@ command: "ps axro \"%cpu,ucomm,pid\" | awk 'FNR>1' | tail +1 | head -n 3 | sed -
 
 refreshFrequency: 2000
 
-top: "50px"
-left: "2.5%"
-botton: "auto"
-right: "auto"
+position:
+  top: "50px"
+  left: "2.5%"
+  botton: "auto"
+  right: "auto"
 font: "'Helvetica Neue', sans-serif"
 # IF YOU HAVE APPLE DEV ACCOUNT AND DOWNLOADED SAN FRANSICO FONT (SanFran is default system font but only those with dev account can use it for other things):
 # font: "SF UI Text"
