@@ -14,15 +14,18 @@ style =
 
 	# Define the position, where to display the time.
 	# Set properties you don't need to "auto"
+	# By default posistions it in the middle using text center later
 	position:
 		top:    "auto"
-		bottom: "0%"
-		left:   "26%"
-		right:  "auto"
+		bottom: "15%"
+		left:   "0%"
+		right: "auto"
 
 
 	# Font properties
 	font:            "'Helvetica Neue', sans-serif"
+	# IF YOU HAVE APPLE DEV ACCOUNT AND DOWNLOADED SAN FRANSICO FONT (SanFran is default system font but only those with dev account can use it for other things):
+	# font:          "'SF UI Text', sans-serif"
 	font_color:      "#F5F5F5"
 	font_size:       "6vw"
 	font_weight:     "100"
@@ -37,8 +40,8 @@ style =
 		color:    "rgba(0, 0, 0, .4)"
 
 	# Misc
-	text_align:     "left"
-	text_transform: "uppercase"
+	text_align:     "center"
+  text_transform: "uppercase"
 
 	z_index: 45
 
@@ -47,9 +50,9 @@ style =
 command: "ruby background.widget/extra-widgets/timeinwords.widget/hours.rb"
 
 # Lower the frequency for more accuracy.
-refreshFrequency: (1000 * 3) # (1000 * n) seconds
+refreshFrequency: (1000 * 3) # (1000 * n) seconds, 3 sec by default
 
-
+# HTML content to render
 render: (o) -> """
 	<div id="content">
 		<span id="hours"></span>
@@ -57,14 +60,14 @@ render: (o) -> """
 	</div>
 """
 
-
+# Run every refreshFrequency and updates the html content
 update: (output, dom) ->
 	$(dom).find("#hours").html(output)
 	@run("ruby background.widget/extra-widgets/timeinwords.widget/minutes.rb", (err, output) ->
 			$(dom).find('#minutes').html(output)
 	)
 
-
+# CSS style sheet
 style: """
 	top: #{@style.position.top}
 	bottom: #{@style.position.bottom}
